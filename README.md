@@ -116,7 +116,7 @@ Las instrucciones para la instalación de node fueron tomadas de
       cd sslcert
       openssl req -new -x509 -extensions v3_ca -keyout private/seleniumCAkey.pem -out seleniumCAcert.pem -days 365 -config ./openssl.cnf
 
-Elegir un password 4x8mslRQ7Z
+Elegir un password 4x8mslRQ7Z (se usa agusiot2022)
 
   **Precaución: no usar este password pues aunque el riesgo es bajo, permite firmar certificados en los que luego el sistema va a confiar.**
 

@@ -2,8 +2,8 @@ const {Builder, By, until, Key, Capabilities} = require('selenium-webdriver');
 const {expect} = require('chai');
 var firefox = require('selenium-webdriver/firefox');
 //var profilePath = '/home/tsiot/.mozilla/firefox/zoa6kvyg.default';
-var profilePath = '/home/tsiot/.mozilla/firefox/8297bw4u.default-release';
-let TIMEOUT=10000;
+var profilePath = '/home/agus/.mozilla/firefox/i2gp0nlj.default-release';
+let TIMEOUT=20000;
 
 describe('test multi site with firefox', function() {
    let driver;
@@ -64,6 +64,36 @@ describe('test multi site with firefox', function() {
       await driver.get('https://sitio2/');
       driver.findElement(By.id('canary')).then(element=>{
          expect(element.text).to.equal('Canario');  
+      });
+   });
+
+
+   it('check that endpoint mult multiplies a * b', async function() {
+      this.timeout(20000);
+      
+      await driver.get('https://sensor/multi');
+      
+      
+      await driver.findElement(By.id('a')).then(element=> element.sendKeys('7'));
+      await driver.findElement(By.id('b')).then(element=> element.sendKeys('8'));
+      
+      await driver.findElement(By.id('multiplica')).then(element=> element.click());
+/* hasta acá funciona */
+
+
+/* Aca es cuando me trabo, no logro entender como recuperar el resultado de la multiplicación
+   para compararlo con el esperado.
+   
+   Lo que pasa es que debería poder hacer algo parecido a driver.get pero del texto HTML que
+   llega en el response res.send del app.post /mult como se ve en index.js
+
+   Tal vez debería encararse de otra forma...., consultar a Carlos 
+   
+   */
+
+   /*esto no funciona */
+      await driver.findElement(By.id('resultado')).then(element=> {
+         expect(element.text).to.equal('56');
       });
    });
 

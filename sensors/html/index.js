@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 const httpPort = 8080
 
 var count = -1;
+var result = 0;
 
 app.get('/reset', function(req, res) {
    count = 0;
@@ -28,7 +31,29 @@ app.get('/hitcount', function(req, res) {
  console.log('hitcount');
 } )
 
+app.get('/multi', function(req, res) {
+   res.sendFile('multi.html', { root: __dirname }); console.log('multi');
+})
 
+
+app.post('/mult', function(req, res, next) {
+   let a = Number(req.body.a);
+   let b = Number(req.body.b);
+   
+   result = a * b;
+   req.body.resultado = result;
+   console.log(result);
+
+   res.send(
+
+       `<!DOCTYPE html>
+      <html lang="en">
+      <body>
+      <p id="resultado">${a} * ${b} = ${result}</p>
+      </body>
+      </html>`
+       );
+   })
 
 app.get('/hit', function(req, res) {
    ++count;
