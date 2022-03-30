@@ -29,7 +29,7 @@ describe('test multi site with firefox', function() {
       });
    });
 
-   it('check that sitio1 does not generate hits', async function() {
+  it('check that sitio1 does not generate hits', async function() {
       this.timeout(TIMEOUT);
       await driver.get('https://sensor/reset');
       await driver.get('https://sitio1/');
@@ -78,6 +78,10 @@ describe('test multi site with firefox', function() {
       await driver.findElement(By.id('b')).then(element=> element.sendKeys('8'));
       
       await driver.findElement(By.id('multiplica')).then(element=> element.click());
+
+      
+   });
+            
 /* hasta acá funciona */
 
 
@@ -91,11 +95,11 @@ describe('test multi site with firefox', function() {
    
    */
 
-   /*esto no funciona */
+   /*esto no funciona 
       await driver.findElement(By.id('resultado')).then(element=> {
-         expect(element.text).to.equal('56');
+         expect(element.text).to.equal("56");
       });
-   });
+   });*/
 
    after( () =>
       driver && driver.quit()

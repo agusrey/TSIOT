@@ -49,7 +49,7 @@ app.post('/mult', function(req, res, next) {
        `<!DOCTYPE html>
       <html lang="en">
       <body>
-      <p id="resultado">${a} * ${b} = ${result}</p>
+      <p id="resultado">${result}</p>
       </body>
       </html>`
        );
