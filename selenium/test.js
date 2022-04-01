@@ -19,7 +19,7 @@ describe('test multi site with firefox', function() {
 		   setFirefoxOptions(options).build();	   
 
    });
-
+/* 
    it('check reset is working', async function() {
       this.timeout(TIMEOUT);
       await driver.get('https://sensor/reset');
@@ -29,7 +29,7 @@ describe('test multi site with firefox', function() {
       });
    });
 
-  it('check that sitio1 does not generate hits', async function() {
+   it('check that sitio1 does not generate hits', async function() {
       this.timeout(TIMEOUT);
       await driver.get('https://sensor/reset');
       await driver.get('https://sitio1/');
@@ -65,9 +65,9 @@ describe('test multi site with firefox', function() {
       driver.findElement(By.id('canary')).then(element=>{
          expect(element.text).to.equal('Canario');  
       });
-   });
+   }); 
 
-
+ */
    it('check that endpoint mult multiplies a * b', async function() {
       this.timeout(20000);
       
@@ -79,28 +79,12 @@ describe('test multi site with firefox', function() {
       
       await driver.findElement(By.id('multiplica')).then(element=> element.click());
 
-      
+
+      let element = await driver.wait(until.elementLocated(By.id('resultado')), TIMEOUT);
+      let text = await element.getText();
+      expect(text).to.equal("56");
+
    });
-            
-/* hasta acá funciona */
-
-
-/* Aca es cuando me trabo, no logro entender como recuperar el resultado de la multiplicación
-   para compararlo con el esperado.
-   
-   Lo que pasa es que debería poder hacer algo parecido a driver.get pero del texto HTML que
-   llega en el response res.send del app.post /mult como se ve en index.js
-
-   Tal vez debería encararse de otra forma...., consultar a Carlos 
-   
-   */
-
-   /*esto no funciona 
-      await driver.findElement(By.id('resultado')).then(element=> {
-         expect(element.text).to.equal("56");
-      });
-   });*/
-   
 
    after( () =>
       driver && driver.quit()

@@ -49,12 +49,14 @@ app.post('/mult', function(req, res, next) {
        `<!DOCTYPE html>
       <html lang="en">
       <body>
-      <p id="resultado">${result}</p>
+      <h2>El resultado de multiplicar ${a} por ${b} es</h2>
+      <h1 id="resultado">${result}</h1>
       </body>
       </html>`
        );
    })
 
+   
 app.get('/hit', function(req, res) {
    ++count;
    res.send('hit ok'); console.log('get hit');

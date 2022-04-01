@@ -1,3 +1,22 @@
+# Trabajo Práctico Nº4 - TSIOT
+
+Autor: Agustín Rey
+Docente: Carlos Pantelides
+
+# Descripción.
+
+A partir de un fork del repo proporcionado en clase, se debe agregar lo siguiente:
+
+-  Realizar los test necesarios y la implementación correspondiente para agregar al sensor una página html con el formulario de los valores a multiplicar un endpoint post de node que haga la multiplicación y la devuelva así:
+<h1>El resultado de multiplicar # por # es #</h1>
+
+
+nota: se incluye debajo el readme.md del repo original
+
+
+---------------------------------------------------------------------------------------------------
+
+
 # Taller de testeo de redirecciones e inclusiones multi sitio con selenium y docker
 
 ## Descripción
